@@ -3,21 +3,6 @@ Datakit data.world plugin
 ===============================
 
 
-.. image:: https://img.shields.io/pypi/v/datakit-dworld.svg
-        :target: https://pypi.python.org/pypi/datakit-dworld
-
-.. image:: https://img.shields.io/travis/associatedpress/datakit-dworld.svg
-        :target: https://travis-ci.org/associatedpress/datakit-dworld
-
-.. image:: https://readthedocs.org/projects/datakit-dworld/badge/?version=latest
-        :target: https://datakit-dworld.readthedocs.io/en/latest/?badge=latest
-        :alt: Documentation Status
-
-.. image:: https://pyup.io/repos/github/associatedpress/datakit-dworld/shield.svg
-     :target: https://pyup.io/repos/github/associatedpress/datakit-dworld/
-     :alt: Updates
-
-
 Commands to manage project integration with data.world.
 
 
