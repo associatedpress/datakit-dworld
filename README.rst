@@ -7,8 +7,6 @@ Commands to manage project integration with data.world.
 
 
 * Free software: ISC license
-* Documentation: https://datakit-dworld.readthedocs.io.
-
 
 
 Features
