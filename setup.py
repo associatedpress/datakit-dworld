@@ -36,6 +36,7 @@ setup(
     entry_points={
         'datakit.plugins': [
             'dworld:create= datakit_dworld.create:Create',
+            'dworld:push= datakit_dworld.push:Push',
         ]
     },
     install_requires=requirements,
