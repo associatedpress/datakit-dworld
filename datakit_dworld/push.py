@@ -12,11 +12,21 @@ class Push(CommandHelpers, Command):
 
     plugin_slug = 'datakit-dworld'
 
+    def get_parser(self, prog_name):
+        parser = super(Push, self).get_parser(prog_name)
+        parser.add_argument(
+            '-s',
+            '--source-dir',
+            default=os.path.join('data', 'public'),
+            help='Directory of files to upload (default: data/public)'
+        )
+        return parser
+
     def take_action(self, parsed_args):
         dataset_id = '{0}/{1}'.format(
             self.configs['username'], self.get_project_slug())
 
-        data_public_dir = os.path.join(os.getcwd(), 'data', 'public')
+        data_public_dir = os.path.join(os.getcwd(), parsed_args.source_dir)
         file_paths = glob.glob(os.path.join(data_public_dir, '**'))
         self.log.info((
            'Attempting to upload {0} files to dataset {1} on data.world'
