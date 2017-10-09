@@ -44,4 +44,4 @@ Notes and suggestions for reporters on using this data for their own stories
 
 ## Contact
 
-All data collected by Associated Press reporter #### (<x@ap.org>) and prepared by Associated Press data journalist #### (<y@ap.org).
+All data collected by Associated Press reporter #### (<x@ap.org>) and prepared by Associated Press data journalist #### (<y@ap.org>).
