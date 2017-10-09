@@ -6,11 +6,11 @@ from cliff.command import Command
 from datakit import CommandHelpers
 import requests
 
+from datakit_dworld.dworld_mixin import DworldMixin
 
-class Push(CommandHelpers, Command):
+
+class Push(DworldMixin, CommandHelpers, Command):
     "Upload data files to data.world"
-
-    plugin_slug = 'datakit-dworld'
 
     def get_parser(self, prog_name):
         parser = super(Push, self).get_parser(prog_name)
@@ -54,7 +54,7 @@ class Push(CommandHelpers, Command):
         return 'application/octet-stream'
 
     def get_project_slug(self):
-        return os.path.basename(os.getcwd())
+        return self.get_settings_data()['slug']
 
     def upload_file(self, path, dataset_id):
         url = 'https://api.data.world/v0/uploads/{0}/files/{1}'.format(
