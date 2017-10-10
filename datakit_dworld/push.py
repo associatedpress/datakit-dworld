@@ -28,6 +28,14 @@ class Push(DworldMixin, CommandHelpers, Command):
 
         data_public_dir = os.path.join(os.getcwd(), parsed_args.source_dir)
         file_paths = glob.glob(os.path.join(data_public_dir, '**'))
+
+        if not file_paths:
+            self.log.info((
+                'No files found to upload in {0}. You might want to specify '
+                'an alternate directory with --source-dir.'
+            ).format(parsed_args.source_dir))
+            return
+
         self.log.info((
            'Attempting to upload {0} files to dataset {1} on data.world'
         ).format(len(file_paths), dataset_id))
