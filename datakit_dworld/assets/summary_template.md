@@ -42,6 +42,5 @@ Notes and suggestions for reporters on using this data for their own stories
 
 * Caveat item 2
 
-## Contact
 
-All data collected by Associated Press reporter #### (<x@ap.org>) and prepared by Associated Press data journalist #### (<y@ap.org>).
+###### Contact reporters X at <X@ap.org> or Y at <Y@ap.org>.
