@@ -2,6 +2,7 @@
 import json
 import os
 
+
 class DworldMixin(object):
     plugin_slug = 'datakit-dworld'
 

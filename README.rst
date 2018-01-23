@@ -12,7 +12,8 @@ Commands to manage project integration with data.world.
 Features
 ========
 
-* TODO
+* Create a project (dataset) on data.world
+* Push data files from a local directory to a data.world project
 
 Installation
 ============
@@ -21,10 +22,8 @@ In order to use this plugin with a system-wide install of datakit_::
 
   $ pip install -e 'git+https://gitlab.inside.ap.org/newsapps/datakit-dworld.git#egg=datakit-dworld'
 
-Usage
-=====
 
-* You'll need a config file at
+You'll need a config file at
   ``~/.datakit/plugins/datakit-dworld/config.json`` that looks like this::
 
     {
@@ -36,13 +35,17 @@ Usage
   data sets and ``API_TOKEN`` is the Admin token under your
   `Advanced settings`_ in data.world.
 
+
+Usage
+=====
+
 * When in a datakit project, you'll have two new commands:
 
-  * ``datakit dworld:create``, which creates a new project (dataset) on
+  * ``datakit dworld create``, which creates a new project (dataset) on
     data.world. Has a required ``--slug`` option to specify the slug used in
     the project's URLs.
 
-  * ``datakit dworld:push``, which uploads data files (CSV, etc.) from your
+  * ``datakit dworld push``, which uploads data files (CSV, etc.) from your
     project to data.world. Defaults to uploading any files in your project's
     ``data/public`` directory, but you can specify a different directory with
     ``--source-dir``.
