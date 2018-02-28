@@ -75,7 +75,17 @@ class Push(DworldMixin, CommandHelpers, Command):
         with open(path, 'rb') as input_file:
             r = requests.put(url, data=input_file, headers=headers)
 
-        r.raise_for_status()
+        try:
+            r.raise_for_status()
+        except requests.exceptions.HTTPError as e:
+            if r.status_code == 400:
+                username, slug = dataset_id.split('/', 1)
+                self.log.error(
+                    'The upload failed for {0}. Double-check that your '
+                    'project slug ({1}) is correct, and edit it in '
+                    '`.datakit-dworld` if necessary.'.format(
+                        os.path.basename(path), slug))
+            raise e
 
         self.log.debug('Uploaded {0} to {1}'.format(
             os.path.basename(path), dataset_id))
