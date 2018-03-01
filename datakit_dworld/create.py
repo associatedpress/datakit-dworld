@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
+from urllib.parse import urlparse
 
 from cliff.command import Command
 from datakit import CommandHelpers
@@ -43,20 +44,22 @@ class Create(DworldMixin, CommandHelpers, Command):
         r = requests.post(url, json=payload, headers=headers)
         r.raise_for_status()
 
-        return r.json()['uri']
+        dataset_url = r.json()['uri']
+        url_path = urlparse(dataset_url).path
+        url_slug = url_path.split('/')[-1]
+
+        settings_data = self.get_settings_data()
+        settings_data['slug'] = url_slug
+        self.save_settings_data(settings_data)
+
+        return dataset_url
 
     def get_project_slug(self, parsed_args):
         try:
-            project_slug = parsed_args.slug.strip()
+            return parsed_args.slug.strip()
         except AttributeError:
             raise AttributeError(
                 'Must pass project slug for URLs with `--slug`')
-
-        settings_data = self.get_settings_data()
-        settings_data['slug'] = project_slug
-        self.save_settings_data(settings_data)
-
-        return project_slug
 
     def read_summary_template(self):
         template_path = os.path.join(
