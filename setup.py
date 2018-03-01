@@ -28,6 +28,11 @@ setup(
     author_email='jmyers@ap.org',
     url='https://github.com/associatedpress/datakit-dworld',
     packages=find_packages(),
+    data_files=(
+        (
+            'datakit_dworld/assets',
+            ('datakit_dworld/assets/summary_template.md',)),
+    ),
     include_package_data=True,
     entry_points={
         'datakit.plugins': [
