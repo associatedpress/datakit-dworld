@@ -62,7 +62,13 @@ class Push(DworldMixin, CommandHelpers, Command):
         return 'application/octet-stream'
 
     def get_project_slug(self):
-        return self.get_settings_data()['slug']
+        try:
+            return self.get_settings_data()['slug']
+        except KeyError:
+            settings_path = os.path.abspath(self.get_settings_path())
+            raise KeyError(
+                'Couldn\'t find `slug` in your project-level config. '
+                'Make sure it exists in {0}.'.format(settings_path))
 
     def upload_file(self, path, dataset_id):
         url = 'https://api.data.world/v0/uploads/{0}/files/{1}'.format(
