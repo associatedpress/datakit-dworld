@@ -86,11 +86,12 @@ class Push(DworldMixin, CommandHelpers, Command):
         except requests.exceptions.HTTPError as e:
             if r.status_code == 400:
                 username, slug = dataset_id.split('/', 1)
+                settings_path = os.path.abspath(self.get_settings_path())
                 self.log.error(
                     'The upload failed for {0}. Double-check that your '
                     'project slug ({1}) is correct, and edit it in '
-                    '`.datakit-dworld` if necessary.'.format(
-                        os.path.basename(path), slug))
+                    '{2} if necessary.'.format(
+                        os.path.basename(path), slug, settings_path))
             raise e
 
         self.log.debug('Uploaded {0} to {1}'.format(
