@@ -62,7 +62,13 @@ class Push(DworldMixin, CommandHelpers, Command):
         return 'application/octet-stream'
 
     def get_project_slug(self):
-        return self.get_settings_data()['slug']
+        try:
+            return self.get_settings_data()['slug']
+        except KeyError:
+            settings_path = os.path.abspath(self.get_settings_path())
+            raise KeyError(
+                'Couldn\'t find `slug` in your project-level config. '
+                'Make sure it exists in {0}.'.format(settings_path))
 
     def upload_file(self, path, dataset_id):
         url = 'https://api.data.world/v0/uploads/{0}/files/{1}'.format(
@@ -80,11 +86,12 @@ class Push(DworldMixin, CommandHelpers, Command):
         except requests.exceptions.HTTPError as e:
             if r.status_code == 400:
                 username, slug = dataset_id.split('/', 1)
+                settings_path = os.path.abspath(self.get_settings_path())
                 self.log.error(
                     'The upload failed for {0}. Double-check that your '
                     'project slug ({1}) is correct, and edit it in '
-                    '`.datakit-dworld` if necessary.'.format(
-                        os.path.basename(path), slug))
+                    '{2} if necessary.'.format(
+                        os.path.basename(path), slug, settings_path))
             raise e
 
         self.log.debug('Uploaded {0} to {1}'.format(

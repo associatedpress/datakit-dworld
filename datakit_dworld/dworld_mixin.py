@@ -7,7 +7,7 @@ class DworldMixin(object):
     plugin_slug = 'datakit-dworld'
 
     def get_settings_path(self):
-        return os.path.join(os.getcwd(), '.datakit-dworld')
+        return os.path.join(os.getcwd(), 'config', 'datakit-dworld.json')
 
     def get_settings_data(self):
         settings_data = {}
@@ -19,5 +19,7 @@ class DworldMixin(object):
 
     def save_settings_data(self, data):
         settings_path = self.get_settings_path()
+        settings_dir = os.path.dirname(settings_path)
+        os.makedirs(settings_dir, exist_ok=True)
         with open(settings_path, 'w') as settings_file:
             json.dump(data, settings_file)
