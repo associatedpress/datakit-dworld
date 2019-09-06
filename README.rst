@@ -20,7 +20,7 @@ Installation
 
 In order to use this plugin with a system-wide install of datakit_::
 
-  $ pip install -e 'git+https://gitlab.inside.ap.org/newsapps/datakit-dworld.git#egg=datakit-dworld'
+  $ pip install -e 'git+https://github.com/associatedpress/datakit-dworld.git#egg=datakit-dworld'
 
 
 You'll need a config file at
@@ -54,11 +54,11 @@ Usage
 Credits
 ========
 
-This plugin was created with Cookiecutter_ and the `associatedpress/cookiecutter-datakit-plugin`_ 
+This plugin was created with Cookiecutter_ and the `associatedpress/cookiecutter-datakit-plugin`_
 project template (a modified version of the most excellent `audreyr/cookiecutter-pypackage`_).
 
 .. _`Advanced settings`: https://data.world/settings/advanced
-.. _datakit: https://github.com/associatedpress/datakit-core
+.. _datakit: http://datakit.ap.org/
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _`associatedpress/cookiecutter-datakit-plugin`: https://github.com/associatedpress/cookiecutter-datakit-plugin
 .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
