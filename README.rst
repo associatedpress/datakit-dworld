@@ -1,5 +1,5 @@
 ===============================
-Datakit data.world plugin
+DataKit data.world plugin
 ===============================
 
 
@@ -19,7 +19,7 @@ Features
 Setup instructions
 ==================
 
-Assuming you have datakit_ installed, run the following to install the
+Assuming you have DataKit_ installed, run the following to install the
 `datakit-dworld` plugin::
 
   $ pip install -e 'git+https://github.com/associatedpress/datakit-dworld.git#egg=datakit-dworld'
@@ -65,7 +65,7 @@ This plugin was created with Cookiecutter_ and the `associatedpress/cookiecutter
 project template (a modified version of the most excellent `audreyr/cookiecutter-pypackage`_).
 
 .. _`Advanced settings`: https://data.world/settings/advanced
-.. _datakit: http://datakit.ap.org/
+.. _DataKit: http://datakit.ap.org/
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _`Log in to data.world`: https://data.world/login
 .. _`associatedpress/cookiecutter-datakit-plugin`: https://github.com/associatedpress/cookiecutter-datakit-plugin
