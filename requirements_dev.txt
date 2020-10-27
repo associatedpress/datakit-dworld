@@ -9,6 +9,6 @@ coverage==4.1
 # https://github.com/sphinx-doc/sphinx/issues/3212
 docutils==0.12
 Sphinx==1.4.8
-cryptography==1.7
+cryptography==3.2
 PyYAML==3.11
 pytest==2.9.2
