@@ -12,8 +12,12 @@ class DworldMixin(object):
             'Content-Type': 'application/json',
         }
 
+    def get_project_path(self):
+        return os.getcwd()
+
     def get_settings_path(self):
-        return os.path.join(os.getcwd(), 'config', 'datakit-dworld.json')
+        return os.path.join(
+            self.get_project_path(), 'config', 'datakit-dworld.json')
 
     def get_settings_data(self):
         settings_data = {}
