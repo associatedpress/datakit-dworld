@@ -38,6 +38,7 @@ setup(
         'datakit.plugins': [
             'dworld create= datakit_dworld.create:Create',
             'dworld push= datakit_dworld.push:Push',
+            'dworld summary= datakit_dworld.summary:Summary',
         ]
     },
     install_requires=requirements,
