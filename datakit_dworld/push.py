@@ -73,13 +73,10 @@ class Push(DworldMixin, CommandHelpers, Command):
     def upload_file(self, path, dataset_id):
         url = 'https://api.data.world/v0/uploads/{0}/files/{1}'.format(
             dataset_id, os.path.basename(path))
-        headers = {
-            'Authorization': 'Bearer {0}'.format(self.configs['api_token']),
-            'Content-Type': self.get_mime_type(path),
-        }
 
         with open(path, 'rb') as input_file:
-            r = requests.put(url, data=input_file, headers=headers)
+            r = requests.put(
+                url, data=input_file, headers=self.get_auth_headers())
 
         try:
             r.raise_for_status()

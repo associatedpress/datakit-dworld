@@ -36,12 +36,8 @@ class Create(DworldMixin, CommandHelpers, Command):
     def create_dataset(self, payload):
         url = 'https://api.data.world/v0/datasets/{0}'.format(
             self.configs['username'])
-        headers = {
-            'Authorization': 'Bearer {0}'.format(self.configs['api_token']),
-            'Content-Type': 'application/json',
-        }
 
-        r = requests.post(url, json=payload, headers=headers)
+        r = requests.post(url, json=payload, headers=self.get_auth_headers())
         r.raise_for_status()
 
         dataset_url = r.json()['uri']

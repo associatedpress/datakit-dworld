@@ -57,6 +57,11 @@ When in a datakit project, you'll have two new commands:
     project's ``data/public`` directory, but you can specify a different
     directory with ``--source-dir``.
 
+  * ``datakit dworld summary``, which updates the dataset's overall Markdown
+    summary on data.world. This assumes a Markdown file exists at
+    ``publish/distro_summary.md``; if that is not present, it creates one based
+    on the dataset's existing summary.
+
 
 Credits
 ========
