@@ -22,7 +22,7 @@ Setup instructions
 Assuming you have DataKit_ installed, run the following to install the
 `datakit-dworld` plugin::
 
-  $ pip install -e 'git+https://github.com/associatedpress/datakit-dworld.git#egg=datakit-dworld'
+  $ pip install datakit-dworld
 
 Create a configuration file at ``~/.datakit/plugins/datakit-dworld/config.json``
 to tell the plugin about your data.world account. It should look like this::
