@@ -2,6 +2,8 @@
 DataKit data.world plugin
 ===============================
 
+**data.world is no longer used by the Associated Press for data hosting and collaboration. This plugin is no longer being used or maintained.**
+
 
 Commands to manage project integration with data.world.
 
